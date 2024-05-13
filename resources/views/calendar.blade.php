@@ -5,6 +5,7 @@
     </h2>
   </x-slot>
 
+  test
 
   <!-- component -->
   <!-- This is an example component -->
