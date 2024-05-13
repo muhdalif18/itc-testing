@@ -7,6 +7,9 @@
 
   test
   test
+  test
+  test
+
 
   <!-- component -->
   <!-- This is an example component -->
