@@ -6,6 +6,7 @@
   </x-slot>
 
   test
+  test
 
   <!-- component -->
   <!-- This is an example component -->
