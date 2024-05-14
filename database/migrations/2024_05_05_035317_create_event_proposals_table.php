@@ -16,6 +16,11 @@ return new class extends Migration {
       $table->string('background');
       $table->string('eventName');
       $table->string('organizer');
+      $table->string('date');
+      $table->string('day');
+      $table->string('time');
+      $table->string('location');
+
       $table->timestamps();
     });
   }

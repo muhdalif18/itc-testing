@@ -24,12 +24,21 @@ class EventProposalController extends Controller
       'background' => 'required|string|max:255',
       'eventName' => 'required|string|max:255',
       'organizer' => 'required|string|max:255',
+      'date' => 'required|string|max:255',
+      'day' => 'required|string|max:255',
+      'time' => 'required|string|max:255',
+      'location' => 'required|string|max:255',
+
     ]);
 
     $eventProposal->purpose = $request['purpose'];
     $eventProposal->background = $request['background'];
     $eventProposal->eventName = $request['eventName'];
     $eventProposal->organizer = $request['organizer'];
+    $eventProposal->date = $request['date'];
+    $eventProposal->day = $request['day'];
+    $eventProposal->time = $request['time'];
+    $eventProposal->location = $request['location'];
     $eventProposal->save();
 
     return redirect()->route('submit-event-proposal-form');
@@ -53,14 +62,21 @@ class EventProposalController extends Controller
 
 
   //test
-  public function fetchData()
+  /* public function fetchData()
   {
     $data = EventProposal::all();
 
     return $data;
+  } */
+
+  public function fetchData()
+  {
+    return EventProposal::latest()->first(); // Get the latest event proposal
   }
 
-  public function generateWordDocument($data)
+
+  /* public function generateWordDocument($data) */ //yang asal
+  public function generateWordDocument($eventProposal) //yg modified
   {
     // Initialize PHPWord object
     $phpWord = new PhpWord();
@@ -80,48 +96,70 @@ class EventProposalController extends Controller
       'alignment' => 'center', // Alignment of the logo within the page
     ]);
 
-    $section->addText('UNIVERSITI TUN HUSSEIN ONN MALAYSIA', [
+    /* $section->addText('UNIVERSITI TUN HUSSEIN ONN MALAYSIA', [
       'name' => 'Arial', // Font name
       'size' => 13, // Font size
       'bold' => true, // Bold style
       'alignment' => 'center', // Text alignment
       'valign' => 'center', // Vertical alignment
+    ]); */
+
+    $section->addText('UNIVERSITI TUN HUSSEIN ONN MALAYSIA', [
+      'name' => 'Arial', // Font name
+      'size' => 13, // Font size
+      'bold' => true, // Bold style
+    ], [
+      'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, // Text alignment
     ]);
 
     $section->addTextBreak(1);
 
-    // Add "PROGRAM" text aligned with event names
-    $section->addText('PROGRAM', [
+    $section->addText('KERTAS KERJA', [
       'name' => 'Arial', // Font name
       'size' => 13, // Font size
       'bold' => true, // Bold style
-      'alignment' => 'left', // Text alignment (left)
+    ], [
+      'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, // Text alignment
     ]);
 
-    // Concatenate event names into a single string
-    $eventNames = '';
-    foreach ($data as $entry) {
-      $eventNames .= $entry->eventName . ', '; // Add event name with comma separator
-    }
-
-    // Remove trailing comma
-    $eventNames = rtrim($eventNames, ', ');
-
-    // Add event names aligned to the right of "PROGRAM" text
-    $section->addText($eventNames, [
-      'name' => 'Arial', // Font name
-      'size' => 13, // Font size
-      'bold' => false, // Not bold
-      'alignment' => 'right', // Text alignment (right)
-    ]);
-
-    /* // Add "PROGRAM" text aligned with event names
-    $section->addText('PROGRAM',  [
+    /* $section->addText('KERTAS KERJA', [
       'name' => 'Arial', // Font name
       'size' => 13, // Font size
       'bold' => true, // Bold style
-      'alignment' => 'left', // Text alignment (left)
+      'alignment' => 'center', // Text alignment
+      'valign' => 'center', // Vertical alignment
     ]); */
+
+    $section->addTextBreak(1);
+
+    /* $eventName = $eventProposal->eventName;
+    $section->addText($eventName, [
+      'name' => 'Arial', // Font name
+      'size' => 12, // Font size
+      'bold' => true, // Bold style
+      'alignment' => 'center', // Text alignment
+      'valign' => 'center', // Vertical alignment
+    ]); */
+
+    // Retrieve and add eventName below "KERTAS KERJA"
+    $eventName = $eventProposal->eventName;
+    $section->addText($eventName, [
+      'name' => 'Arial', // Font name
+      'size' => 12, // Font size
+      'bold' => true, // Bold style
+    ], [
+      'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, // Text alignment
+    ]);
+
+    $section->addTextBreak(1);
+
+    $section->addText('TEMPAT:', [
+      'name' => 'Arial', // Font name
+      'size' => 13, // Font size
+      'bold' => true, // Bold style
+    ], [
+      'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, // Text alignment
+    ]);
 
 
     // Add table
