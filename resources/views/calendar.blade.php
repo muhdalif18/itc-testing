@@ -5,12 +5,6 @@
     </h2>
   </x-slot>
 
-  test
-  test
-  test
-  test
-
-
   <!-- component -->
   <!-- This is an example component -->
   <div>
