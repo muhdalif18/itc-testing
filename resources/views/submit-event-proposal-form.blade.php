@@ -443,9 +443,6 @@
             <div data-hs-stepper-content-item='{"index": 3}' style="display: none;">
               <div
                 class="p-4 h-max bg-gray-50  items-center border border-dashed border-gray-200 rounded-xl dark:bg-gray-800 dark:border-gray-700">
-                {{-- <h3 class="text-gray-500">
-                  First content
-                </h3> --}}
 
                 <!-- Section -->
                 <div
@@ -458,8 +455,7 @@
                   <!-- End Col -->
 
                   <div class="sm:col-span-3">
-                    <label for="af-submit-application-full-name"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
+                    <label for="date" class="inline-block text-sm font-medium text-gray-500 mt-2.5">
                       Date
                     </label>
                   </div>
@@ -467,17 +463,15 @@
 
                   <div class="sm:col-span-9">
                     <div class="sm:flex">
-                      <input id="af-submit-application-full-name" type="text"
+                      <input id="date" type="text" name="date" value="{{ old('date') }}"
                         class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
-                      {{-- <input type="text"
-              class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
+                      <x-input-error class="mt-2" :messages="$errors->get('date')" />
                     </div>
                   </div>
                   <!-- End Col -->
 
                   <div class="sm:col-span-3">
-                    <label for="af-submit-application-email"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
+                    <label for="day" class="inline-block text-sm font-medium text-gray-500 mt-2.5">
                       Day
                     </label>
                   </div>
@@ -485,17 +479,15 @@
 
                   <div class="sm:col-span-9">
                     <div class="sm:flex">
-                      <input id="af-submit-application-full-name" type="text"
+                      <input id="day" type="text" name="day" value="{{ old('day') }}"
                         class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
-                      {{-- <input type="text"
-              class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
+                      <x-input-error class="mt-2" :messages="$errors->get('day')" />
                     </div>
                   </div>
                   <!-- End Col -->
 
                   <div class="sm:col-span-3">
-                    <label for="af-submit-application-email"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
+                    <label for="time" class="inline-block text-sm font-medium text-gray-500 mt-2.5">
                       Time
                     </label>
                   </div>
@@ -503,17 +495,15 @@
 
                   <div class="sm:col-span-9">
                     <div class="sm:flex">
-                      <input id="af-submit-application-full-name" type="text"
+                      <input id="time" type="text" name="time" value="{{ old('time') }}"
                         class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
-                      {{-- <input type="text"
-              class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
+                      <x-input-error class="mt-2" :messages="$errors->get('time')" />
                     </div>
                   </div>
                   <!-- End Col -->
 
                   <div class="sm:col-span-3">
-                    <label for="af-submit-application-email"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
+                    <label for="location" class="inline-block text-sm font-medium text-gray-500 mt-2.5">
                       Location
                     </label>
                   </div>
@@ -521,10 +511,9 @@
 
                   <div class="sm:col-span-9">
                     <div class="sm:flex">
-                      <input id="af-submit-application-full-name" type="text"
+                      <input id="location" type="text" name="location" value="{{ old('location') }}"
                         class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
-                      {{-- <input type="text"
-              class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
+                      <x-input-error class="mt-2" :messages="$errors->get('location')" />
                     </div>
                   </div>
                   <!-- End Col -->

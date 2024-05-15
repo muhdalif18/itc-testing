@@ -60,15 +60,6 @@ class EventProposalController extends Controller
     return redirect()->route('submit-event-proposal-form'); */
   }
 
-
-  //test
-  /* public function fetchData()
-  {
-    $data = EventProposal::all();
-
-    return $data;
-  } */
-
   public function fetchData()
   {
     return EventProposal::latest()->first(); // Get the latest event proposal
@@ -122,24 +113,7 @@ class EventProposalController extends Controller
       'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, // Text alignment
     ]);
 
-    /* $section->addText('KERTAS KERJA', [
-      'name' => 'Arial', // Font name
-      'size' => 13, // Font size
-      'bold' => true, // Bold style
-      'alignment' => 'center', // Text alignment
-      'valign' => 'center', // Vertical alignment
-    ]); */
-
     $section->addTextBreak(1);
-
-    /* $eventName = $eventProposal->eventName;
-    $section->addText($eventName, [
-      'name' => 'Arial', // Font name
-      'size' => 12, // Font size
-      'bold' => true, // Bold style
-      'alignment' => 'center', // Text alignment
-      'valign' => 'center', // Vertical alignment
-    ]); */
 
     // Retrieve and add eventName below "KERTAS KERJA"
     $eventName = $eventProposal->eventName;
@@ -160,6 +134,76 @@ class EventProposalController extends Controller
     ], [
       'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, // Text alignment
     ]);
+
+    $section->addTextBreak(1);
+
+    $location = $eventProposal->location;
+    $section->addText($location, [
+      'name' => 'Arial', // Font name
+      'size' => 12, // Font size
+      'bold' => true, // Bold style
+    ], [
+      'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, // Text alignment
+    ]);
+
+    $section->addTextBreak(1);
+
+    $section->addText('ANJURAN :', [
+      'name' => 'Arial', // Font name
+      'size' => 13, // Font size
+      'bold' => true, // Bold style
+    ], [
+      'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, // Text alignment
+    ]);
+
+    $section->addTextBreak(1);
+
+    $organizer = $eventProposal->organizer;
+    $section->addText($organizer, [
+      'name' => 'Arial', // Font name
+      'size' => 12, // Font size
+      'bold' => true, // Bold style
+    ], [
+      'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, // Text alignment
+    ]);
+
+    $section->addTextBreak(1);
+
+    $section->addText('TARIKH :', [
+      'name' => 'Arial', // Font name
+      'size' => 13, // Font size
+      'bold' => true, // Bold style
+    ], [
+      'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, // Text alignment
+    ]);
+
+    $date = $eventProposal->date;
+    $section->addText($date, [
+      'name' => 'Arial', // Font name
+      'size' => 12, // Font size
+      'bold' => true, // Bold style
+    ], [
+      'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, // Text alignment
+    ]);
+
+    //Page 2
+
+    $section2 = $phpWord->addSection();
+
+    // Add content to the second page
+    $section2->addText('This is the second page content', [
+      'name' => 'Arial', // Font name
+      'size' => 12, // Font size
+    ]);
+
+    // Add additional content as needed
+    $section2->addText('Additional content for the second page.', [
+      'name' => 'Arial', // Font name
+      'size' => 12, // Font size
+    ]);
+
+
+
 
 
     // Add table
