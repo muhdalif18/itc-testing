@@ -72,6 +72,32 @@ class EventProposalController extends Controller
     // Initialize PHPWord object
     $phpWord = new PhpWord();
 
+    // Define a multi-level numbering style
+    $phpWord->addNumberingStyle(
+      'multilevel',
+      [
+        'type' => 'multilevel',
+        'levels' => [
+          [
+            'format' => 'decimal',
+            'text' => '%1.0',
+            'alignment' => 'left',
+            'tabPos' => 720,
+            'left' => 360,
+            'hanging' => 360,
+          ],
+          [
+            'format' => 'decimal',
+            'text' => '%1.%2',
+            'alignment' => 'left',
+            'tabPos' => 1440,
+            'left' => 720,
+            'hanging' => 360,
+          ],
+        ],
+      ]
+    );
+
     // Add a section
     $section = $phpWord->addSection();
 
@@ -191,16 +217,38 @@ class EventProposalController extends Controller
     $section2 = $phpWord->addSection();
 
     // Add content to the second page
-    $section2->addText('This is the second page content', [
+    /* $section2->addText('MAJLIS PERWAKILAN PELAJAR & PEJABAT HAL EHWAL PELAJAR', [
       'name' => 'Arial', // Font name
       'size' => 12, // Font size
+      'bold' => true, // Bold style
+    ], [
+      'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, // Text alignment
+    ]); */
+
+    $secondPageText = 'MAJLIS PERWAKILAN PELAJAR & PEJABAT HAL EHWAL PELAJAR UNIVERSITI TUN HUSSEIN ONN MALAYSIA';
+    $section2->addText(htmlspecialchars($secondPageText), [
+      'name' => 'Arial', // Font name
+      'size' => 12, // Font size
+      'bold' => true, // Bold style
+    ], [
+      'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, // Text alignment
     ]);
 
-    // Add additional content as needed
-    $section2->addText('Additional content for the second page.', [
+    $section2->addTextBreak(1);
+
+    $eventName = $eventProposal->eventName;
+    $section2->addText($eventName, [
       'name' => 'Arial', // Font name
       'size' => 12, // Font size
+      'bold' => true, // Bold style
+    ], [
+      'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, // Text alignment
     ]);
+
+    // Add additional content with numbering
+    $section2->addText('1.0    TUJUAN', ['name' => 'Arial', 'size' => 12, 'bold' => true], 'multilevel');
+    $section2->addText('This is the tujuan section content.', ['name' => 'Arial', 'size' => 12]);
+
 
 
 
