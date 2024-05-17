@@ -22,7 +22,7 @@ class EventProposalController extends Controller
 
     $this->validate($request, [
       'purpose' => 'required|string|max:255',
-      'background' => 'required|string|max:255',
+      'background' => 'required|string|max:1000',
       'eventName' => 'required|string|max:255',
       'organizer' => 'required|string|max:255',
       'date' => 'required|string|max:255',
@@ -79,9 +79,9 @@ class EventProposalController extends Controller
       array(
         'type' => 'multilevel',
         'levels' => array(
-          array('pStyle' => 'Heading1', 'format' => 'decimal', 'text' => '%1.0', 'left' => 360, 'hanging' => 360, 'tabPos' => 360),
-          array('pStyle' => 'Heading2', 'format' => 'decimal', 'text' => /* '%2.0' */ '%1.%2', 'left' => 720, 'hanging' => 360, 'tabPos' => 720),
-          array('pStyle' => 'Heading3', 'format' => 'decimal', 'text' => /* '%2.%1' */ '%1.%2.%3', 'left' => 1080, 'hanging' => 360, 'tabPos' => 1080),
+          array('pStyle' => 'Heading1', 'format' => 'decimal', 'text' => '%1.0', 'left' => 360, 'hanging' => 720, 'tabPos' => 360),
+          array('pStyle' => 'Heading2', 'format' => 'decimal', 'text' => /* '%2.0' */ '%1.%2', 'left' => 1080, 'hanging' => 720, 'tabPos' => 360),
+          array('pStyle' => 'Heading3', 'format' => 'decimal', 'text' => /* '%2.%1' */ '%1.%2.%3', 'left' => 1080, 'hanging' => 720, 'tabPos' => 1080),
         )
       )
     );
@@ -260,26 +260,153 @@ class EventProposalController extends Controller
     // Define font style for bold headings and numbering
     $phpWord->addFontStyle(
       'boldText',
-      array('bold' => true, 'name' => 'Arial', 'size' => 12)
+      array('bold' => true, 'name' => 'Arial', 'size' => 11)
+    );
+
+    $phpWord->addFontStyle(
+      'notBoldText',
+      array('bold' => false, 'name' => 'Arial', 'size' => 11, 'indentation' => ['left' => 360])
+    );
+
+    // Define a text style for font size 11
+    $phpWord->addFontStyle(
+      'size11', // Style name
+      array('name' => 'Arial', 'size' => 11)
+    );
+
+    // Define text style for normal text with size 11
+    $phpWord->addFontStyle(
+      'normalText',
+      array('name' => 'Arial', 'size' => 11)
     );
 
     // Add a title with numbering
     $section2->addListItem('TUJUAN', 0,/*  null */ 'boldText', 'multilevel');
-    $section2->addText('Tujuan laporan ini adalah untuk memaklumkan Yang Dipertua Majlis Perwakilan Pelajar mengenai LAPORAN JELAJAH DEMOKRASI DAN PENERBITAN : LAWATAN KE PARLIMEN MALAYSIA DAN KARANGKRAF.', [
-      'name' => 'Arial',
-      'size' => 11,
-    ], 'p3_style');
+
+    $phpWord->addParagraphStyle(
+      'justifiedStyle',
+      [
+        'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::BOTH,
+        'indentation' => ['left' => 360],
+      ]
+    );
+
+    $phpWord->addParagraphStyle(
+      'justifiedStyle2',
+      [
+        'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::BOTH,
+        'indentation' => ['left' => 1080],
+      ]
+    );
+
+    //
+    $purpose = $eventProposal->purpose;
+    $section2->addText($purpose, [
+      'name' => 'Arial', // Font name
+      'size' => 11, // Font size
+      'bold' => false, // Bold style
+    ], 'justifiedStyle');
 
     $section2->addTextBreak(1);
 
-    $section2->addListItem('LATAR BELAKANG', 0, null, 'multilevel');
+    $section2->addListItem('LATAR BELAKANG', 0, 'boldText', 'multilevel');
 
-    $section2->addListItem('Pengenalan', 1, null, 'multilevel');
+    $section2->addListItem('Pengenalan', 1, 'notBoldText', 'multilevel');
 
-    $section2->addText('Tujuan laporan ini adalah untuk memaklumkan Yang Dipertua Majlis Perwakilan Pelajar mengenai LAPORAN JELAJAH DEMOKRASI DAN PENERBITAN : LAWATAN KE PARLIMEN MALAYSIA DAN KARANGKRAF.', [
-      'name' => 'Arial',
-      'size' => 11,
-    ], 'level1_text_style');
+    $background = $eventProposal->background;
+    $section2->addText($background, [
+      'name' => 'Arial', // Font name
+      'size' => 11, // Font size
+      'bold' => false, // Bold style
+    ], 'justifiedStyle2');
+
+    $section2->addTextBreak(1);
+
+    $section2->addListItem('NAMA AKTIVITI DAN PENGANJUR', 0, 'boldText', 'multilevel');
+    $section2->addListItem('Nama Aktiviti', 1, 'notBoldText', 'multilevel');
+    $section2->addText($eventName, [
+      'name' => 'Arial', // Font name
+      'size' => 11, // Font size
+      'bold' => false, // Bold style
+    ], 'justifiedStyle2');
+
+    $section2->addListItem('Nama Penganjur', 1, 'notBoldText', 'multilevel');
+    $section2->addText($organizer, [
+      'name' => 'Arial', // Font name
+      'size' => 11, // Font size
+      'bold' => false, // Bold style
+    ], 'justifiedStyle2');
+
+    $section2->addTextBreak(1);
+
+    $section2->addListItem('BUTIRAN AKTIVITI', 0, 'boldText', 'multilevel');
+
+    $section2->addListItem('Tarikh', 1, 'notBoldText', 'multilevel');
+    $section2->addText($date, [
+      'name' => 'Arial', // Font name
+      'size' => 11, // Font size
+      'bold' => false, // Bold style
+    ], 'justifiedStyle2');
+
+    $section2->addListItem('Hari', 1, 'notBoldText', 'multilevel');
+    $day = $eventProposal->day;
+    $section2->addText($day, [
+      'name' => 'Arial', // Font name
+      'size' => 11, // Font size
+      'bold' => false, // Bold style
+    ], 'justifiedStyle2');
+
+    $section2->addListItem('Lokasi', 1, 'notBoldText', 'multilevel');
+    $section2->addText($location, [
+      'name' => 'Arial', // Font name
+      'size' => 11, // Font size
+      'bold' => false, // Bold style
+    ], 'justifiedStyle2');
+
+    $section2->addListItem('Masa', 1, 'notBoldText', 'multilevel');
+    $time = $eventProposal->time;
+    $section2->addText($time, [
+      'name' => 'Arial', // Font name
+      'size' => 11, // Font size
+      'bold' => false, // Bold style
+    ], 'justifiedStyle2');
+
+
+    $section2->addTextBreak(1);
+
+    $section2->addListItem('OBJEKTIF AKTIVITI', 0, 'boldText', 'multilevel');
+
+    $section2->addListItem($background, 1, 'notBoldText', 'multilevel');
+    $section2->addListItem($background, 1, 'notBoldText', 'multilevel');
+    $section2->addListItem($background, 1, 'notBoldText', 'multilevel');
+
+    $section2->addTextBreak(1);
+
+    $section2->addListItem('PERNYATAAN MASALAH', 0, 'boldText', 'multilevel');
+
+    $section2->addListItem('Nama dan Alamat Industri/Persatuan/Agensi/Badan Organisasi Luar', 1, 'notBoldText', 'multilevel');
+    $section2->addListItem($background, 2, 'notBoldText', 'multilevel');
+    /* $section2->addText('Objektif aktiviti adalah seperti berikut:', [
+      'name' => 'Arial', // Font name
+      'size' => 11, // Font size
+      'bold' => false, // Bold style
+    ], 'justifiedStyle');
+
+    $section2->addText($background, [
+      'name' => 'Arial', // Font name
+      'size' => 11, // Font size
+      'bold' => false, // Bold style
+    ], 'justifiedStyle2'); */
+
+
+
+
+
+
+
+
+
+
 
 
 
