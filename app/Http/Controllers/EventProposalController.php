@@ -80,11 +80,44 @@ class EventProposalController extends Controller
         'type' => 'multilevel',
         'levels' => array(
           array('pStyle' => 'Heading1', 'format' => 'decimal', 'text' => '%1.0', 'left' => 360, 'hanging' => 720, 'tabPos' => 360),
-          array('pStyle' => 'Heading2', 'format' => 'decimal', 'text' => /* '%2.0' */ '%1.%2', 'left' => 1080, 'hanging' => 720, 'tabPos' => 360),
-          array('pStyle' => 'Heading3', 'format' => 'decimal', 'text' => /* '%2.%1' */ '%1.%2.%3', 'left' => 1080, 'hanging' => 720, 'tabPos' => 1080),
+          array('pStyle' => 'Heading2', 'format' => 'decimal', 'text' => '%1.%2', 'left' => 1080, 'hanging' => 720, 'tabPos' => 360),
+          array('pStyle' => 'Heading3', 'format' => 'lowerLetter', 'text' => '%3.', 'left' => 1800, 'hanging' => 720, 'tabPos' => 360),
         )
       )
     );
+
+    /* $phpWord->addNumberingStyle(
+      'multilevel',
+      array(
+        'type' => 'multilevel',
+        'levels' => array(
+          array(
+            'pStyle' => 'Heading1',
+            'format' => 'decimal',
+            'text' => '%1.',
+            'left' => 360,
+            'hanging' => 720,
+            'tabPos' => 360
+          ),
+          array(
+            'pStyle' => 'Heading2',
+            'format' => 'decimal',
+            'text' => '%1.%2',
+            'left' => 720,
+            'hanging' => 720,
+            'tabPos' => 720
+          ),
+          array(
+            'pStyle' => 'Heading3',
+            'format' => 'lowerLetter',
+            'text' => '%3.',
+            'left' => 1080,
+            'hanging' => 720,
+            'tabPos' => 1080
+          ),
+        )
+      )
+    ); */
 
 
     // Add a section
