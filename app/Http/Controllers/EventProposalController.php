@@ -12,6 +12,7 @@ use PhpOffice\PhpWord\IOFactory;
 use Illuminate\Support\Facades\Response;
 
 
+
 class EventProposalController extends Controller
 {
   /* letak dekat controller event proposal */
@@ -72,34 +73,45 @@ class EventProposalController extends Controller
     // Initialize PHPWord object
     $phpWord = new PhpWord();
 
-    // Define a multi-level numbering style
+    // Define styles for the different levels
     $phpWord->addNumberingStyle(
       'multilevel',
-      [
+      array(
         'type' => 'multilevel',
-        'levels' => [
-          [
-            'format' => 'decimal',
-            'text' => '%1.0',
-            'alignment' => 'left',
-            'tabPos' => 720,
-            'left' => 360,
-            'hanging' => 360,
-          ],
-          [
-            'format' => 'decimal',
-            'text' => '%1.%2',
-            'alignment' => 'left',
-            'tabPos' => 1440,
-            'left' => 720,
-            'hanging' => 360,
-          ],
-        ],
-      ]
+        'levels' => array(
+          array('pStyle' => 'Heading1', 'format' => 'decimal', 'text' => '%1.0', 'left' => 360, 'hanging' => 360, 'tabPos' => 360),
+          array('pStyle' => 'Heading2', 'format' => 'decimal', 'text' => /* '%2.0' */ '%1.%2', 'left' => 720, 'hanging' => 360, 'tabPos' => 720),
+          array('pStyle' => 'Heading3', 'format' => 'decimal', 'text' => /* '%2.%1' */ '%1.%2.%3', 'left' => 1080, 'hanging' => 360, 'tabPos' => 1080),
+        )
+      )
     );
+
 
     // Add a section
     $section = $phpWord->addSection();
+
+    // Define paragraph style with indentation for level 2 items
+    $phpWord->addParagraphStyle(
+      'p2_style',
+      array('indentation' => array('left' => 720))
+    );
+
+    $phpWord->addParagraphStyle(
+      'p3_style',
+      array('indentation' => array('left' => 360))
+    );
+
+    // Define text style for bold text
+    $phpWord->addFontStyle(
+      'boldText',
+      array('bold' => true, 'name' => 'Arial', 'size' => 11)
+    );
+
+    // Define paragraph style for level 1 items' text
+    $phpWord->addParagraphStyle(
+      'level1_text_style',
+      array('indentation' => array('left' => 720))
+    );
 
     //Add textbreak
     $section->addTextBreak(4);
@@ -245,9 +257,39 @@ class EventProposalController extends Controller
       'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::CENTER, // Text alignment
     ]);
 
-    // Add additional content with numbering
-    $section2->addText('1.0    TUJUAN', ['name' => 'Arial', 'size' => 12, 'bold' => true], 'multilevel');
-    $section2->addText('This is the tujuan section content.', ['name' => 'Arial', 'size' => 12]);
+    // Define font style for bold headings and numbering
+    $phpWord->addFontStyle(
+      'boldText',
+      array('bold' => true, 'name' => 'Arial', 'size' => 12)
+    );
+
+    // Add a title with numbering
+    $section2->addListItem('TUJUAN', 0,/*  null */ 'boldText', 'multilevel');
+    $section2->addText('Tujuan laporan ini adalah untuk memaklumkan Yang Dipertua Majlis Perwakilan Pelajar mengenai LAPORAN JELAJAH DEMOKRASI DAN PENERBITAN : LAWATAN KE PARLIMEN MALAYSIA DAN KARANGKRAF.', [
+      'name' => 'Arial',
+      'size' => 11,
+    ], 'p3_style');
+
+    $section2->addTextBreak(1);
+
+    $section2->addListItem('LATAR BELAKANG', 0, null, 'multilevel');
+
+    $section2->addListItem('Pengenalan', 1, null, 'multilevel');
+
+    $section2->addText('Tujuan laporan ini adalah untuk memaklumkan Yang Dipertua Majlis Perwakilan Pelajar mengenai LAPORAN JELAJAH DEMOKRASI DAN PENERBITAN : LAWATAN KE PARLIMEN MALAYSIA DAN KARANGKRAF.', [
+      'name' => 'Arial',
+      'size' => 11,
+    ], 'level1_text_style');
+
+
+
+    /*  $section2->addListItem('LATAR BELAKANG', 0, null, 'multilevel');
+     $section2->addListItem('Pengenalan', 1, null, 'multilevel');
+     $section2->addText('Malaysia adalah merupakan sebuah negara berdaulat dan merdeka, mengamalkan amalan raja berperlembagaan dan demokrasi berparlimen.', [
+       'name' => 'Arial',
+       'size' => 11,
+       'bold' => true
+     ], 'p3_style'); */
 
 
 
