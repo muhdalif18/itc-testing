@@ -32,6 +32,9 @@ class EventProposalController extends Controller
       'objective1' => 'required|string|max:255',
       'objective2' => 'required|string|max:255',
       'objective3' => 'required|string|max:255',
+      'per_Masalah1' => 'required|string|max:255',
+      'per_Masalah2' => 'required|string|max:255',
+      'per_Masalah3' => 'required|string|max:255',
 
     ]);
 
@@ -46,6 +49,9 @@ class EventProposalController extends Controller
     $eventProposal->objective1 = $request['objective1'];
     $eventProposal->objective2 = $request['objective2'];
     $eventProposal->objective3 = $request['objective3'];
+    $eventProposal->per_Masalah1 = $request['per_Masalah1'];
+    $eventProposal->per_Masalah2 = $request['per_Masalah2'];
+    $eventProposal->per_Masalah3 = $request['per_Masalah3'];
     $eventProposal->save();
 
     return redirect()->route('submit-event-proposal-form');
@@ -427,44 +433,18 @@ class EventProposalController extends Controller
 
     $section2->addListItem('PERNYATAAN MASALAH', 0, 'boldText', 'multilevel');
 
-    $section2->addListItem('Nama dan Alamat Industri/Persatuan/Agensi/Badan Organisasi Luar', 1, 'notBoldText', 'multilevel');
-    $section2->addListItem($background, 2, 'notBoldText', 'multilevel');
-    /* $section2->addText('Objektif aktiviti adalah seperti berikut:', [
-      'name' => 'Arial', // Font name
-      'size' => 11, // Font size
-      'bold' => false, // Bold style
-    ], 'justifiedStyle');
+    $per_Masalah1 = $eventProposal->per_Masalah1;
+    $per_Masalah2 = $eventProposal->per_Masalah2;
+    $per_Masalah3 = $eventProposal->per_Masalah3;
 
-    $section2->addText($background, [
-      'name' => 'Arial', // Font name
-      'size' => 11, // Font size
-      'bold' => false, // Bold style
-    ], 'justifiedStyle2'); */
+    $section2->addListItem($per_Masalah1, 1, 'notBoldText', 'multilevel');
+    $section2->addListItem($per_Masalah2, 1, 'notBoldText', 'multilevel');
+    $section2->addListItem($per_Masalah3, 1, 'notBoldText', 'multilevel');
 
 
-
-
-
-
-
-
-
-
-
-
-
-    /*  $section2->addListItem('LATAR BELAKANG', 0, null, 'multilevel');
-     $section2->addListItem('Pengenalan', 1, null, 'multilevel');
-     $section2->addText('Malaysia adalah merupakan sebuah negara berdaulat dan merdeka, mengamalkan amalan raja berperlembagaan dan demokrasi berparlimen.', [
-       'name' => 'Arial',
-       'size' => 11,
-       'bold' => true
-     ], 'p3_style'); */
-
-
-
-
-
+    //MULTILEVEL ABC
+    /* $section2->addListItem('Nama dan Alamat Industri/Persatuan/Agensi/Badan Organisasi Luar', 1, 'notBoldText', 'multilevel');
+    $section2->addListItem($background, 2, 'notBoldText', 'multilevel'); */
 
     // Add table
     /* $table = $section->addTable();

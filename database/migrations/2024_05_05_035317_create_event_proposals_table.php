@@ -23,6 +23,9 @@ return new class extends Migration {
       $table->string('objective1');
       $table->string('objective2');
       $table->string('objective3');
+      $table->string('per_Masalah1');
+      $table->string('per_Masalah2');
+      $table->string('per_Masalah3');
       $table->timestamps();
     });
   }
