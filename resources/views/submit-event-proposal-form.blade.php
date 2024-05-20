@@ -573,7 +573,8 @@
                     <div class="sm:col-span-9">
                       <textarea id="objective2" name="objective2"
                         class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="2" placeholder=""></textarea>
+                        rows="2" placeholder="">{{ old('objective2') }}</textarea>
+                      <x-input-error class="mt-2" :messages="$errors->get('objective2')" />
                     </div>
                   </div>
                   <!-- End Col -->
@@ -591,14 +592,14 @@
                     <div class="sm:col-span-9">
                       <textarea id="objective3" name="objective3"
                         class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="2" placeholder=""></textarea>
+                        rows="2" placeholder="">{{ old('objective2') }}</textarea>
+                      <x-input-error class="mt-2" :messages="$errors->get('objective3')" />
                     </div>
                   </div>
                   <!-- End Col -->
 
                   <div class="sm:col-span-3">
-                    <label for="af-submit-application-email"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
+                    <label for="per_Masalah1" class="inline-block text-sm font-medium text-gray-500 mt-2.5">
                       Problem Statement
                     </label>
                   </div>
@@ -608,16 +609,16 @@
                     {{--  <input id="af-submit-application-phone" type="text"
                       class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
                     <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
+                      <textarea id="per_Masalah1" name="per_Masalah1"
                         class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="3" placeholder=""></textarea>
+                        rows="3" placeholder="">{{ old('per_Masalah1') }}</textarea>
+                      <x-input-error class="mt-2" :messages="$errors->get('per_Masalah1')" />
                     </div>
                   </div>
                   <!-- End Col -->
 
                   <div class="sm:col-span-3">
-                    <label for="af-submit-application-email"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
+                    <label for="per_Masalah2" class="inline-block text-sm font-medium text-gray-500 mt-2.5">
                       {{-- Problem Statement --}}
                     </label>
                   </div>
@@ -627,16 +628,16 @@
                     {{--  <input id="af-submit-application-phone" type="text"
                       class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
                     <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
+                      <textarea id="per_Masalah2" name="per_Masalah2"
                         class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="3" placeholder=""></textarea>
+                        rows="3" placeholder="">{{ old('per_Masalah2') }}</textarea>
+                      <x-input-error class="mt-2" :messages="$errors->get('per_Masalah2')" />
                     </div>
                   </div>
                   <!-- End Col -->
 
                   <div class="sm:col-span-3">
-                    <label for="af-submit-application-email"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
+                    <label for="per_Masalah3" class="inline-block text-sm font-medium text-gray-500 mt-2.5">
                       {{-- Problem Statement --}}
                     </label>
                   </div>
@@ -646,9 +647,10 @@
                     {{--  <input id="af-submit-application-phone" type="text"
                       class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
                     <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
+                      <textarea id="per_Masalah3" name="per_Masalah3"
                         class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="3" placeholder=""></textarea>
+                        rows="3" placeholder="">{{ old('per_Masalah3') }}</textarea>
+                      <x-input-error class="mt-2" :messages="$errors->get('per_Masalah3')" />
                     </div>
                   </div>
                   <!-- End Col -->
@@ -657,687 +659,6 @@
               </div>
             </div>
             <!-- End Fourth Content -->
-
-            <!-- Fifth Content -->
-            <div data-hs-stepper-content-item='{"index": 5}' style="display: none;">
-              <div
-                class="p-4 h-max bg-gray-50  items-center border border-dashed border-gray-200 rounded-xl dark:bg-gray-800 dark:border-gray-700">
-                {{-- <h3 class="text-gray-500">
-                  First content
-                </h3> --}}
-
-                <!-- Section -->
-                <div
-                  class="grid sm:grid-cols-12 gap-2 sm:gap-4 py-8 first:pt-0 last:pb-0 border-t first:border-transparent border-gray-200 dark:border-gray-700 dark:first:border-transparent">
-                  <div class="sm:col-span-12">
-                    <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
-                      List Of Participant And Attendants
-                    </h2>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-full-name"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      Participant and Attendants
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
-                    <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
-                        class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="2" placeholder=""></textarea>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                </div>
-              </div>
-            </div>
-            <!-- End Fifth Content -->
-
-            <!-- Six Content -->
-            <div data-hs-stepper-content-item='{"index": 6}' style="display: none;">
-              <div
-                class="p-4 h-max bg-gray-50  items-center border border-dashed border-gray-200 rounded-xl dark:bg-gray-800 dark:border-gray-700">
-                {{-- <h3 class="text-gray-500">
-                  First content
-                </h3> --}}
-
-                <!-- Section -->
-                <div
-                  class="grid sm:grid-cols-12 gap-2 sm:gap-4 py-8 first:pt-0 last:pb-0 border-t first:border-transparent border-gray-200 dark:border-gray-700 dark:first:border-transparent">
-                  <div class="sm:col-span-12">
-                    <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
-                      Involvement of Industry/Association/Agencies/External Organization Bodues as a Mentor/Advisor
-                    </h2>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-full-name"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      Name and Position of Mentor/ Advisor
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
-                    <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
-                        class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="2" placeholder=""></textarea>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-full-name"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      Company address
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
-                    <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
-                        class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="2" placeholder=""></textarea>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-full-name"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      Suggested Roles and Contributions of Mentors / Advisors
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
-                    <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
-                        class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="2" placeholder=""></textarea>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-                </div>
-              </div>
-            </div>
-            <!-- End Six Content -->
-
-            <!-- Seven Content -->
-            <div data-hs-stepper-content-item='{"index": 7}' style="display: none;">
-              <div
-                class="p-4 h-max bg-gray-50  items-center border border-dashed border-gray-200 rounded-xl dark:bg-gray-800 dark:border-gray-700">
-                {{-- <h3 class="text-gray-500">
-                  First content
-                </h3> --}}
-
-                <!-- Section -->
-                <div
-                  class="grid sm:grid-cols-12 gap-2 sm:gap-4 py-8 first:pt-0 last:pb-0 border-t first:border-transparent border-gray-200 dark:border-gray-700 dark:first:border-transparent">
-                  <div class="sm:col-span-12">
-                    <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
-                      Success of Activity/Impact
-                    </h2>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-full-name"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      To Students / Participants
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
-                    <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
-                        class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="2" placeholder=""></textarea>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-full-name"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      {{-- Dummy --}}
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
-                    <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
-                        class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="2" placeholder=""></textarea>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-full-name"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      {{-- Dummy --}}
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
-                    <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
-                        class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="2" placeholder=""></textarea>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-email"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      To the Club / University / Community
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
-                    <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
-                        class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="2" placeholder=""></textarea>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-email"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      {{-- Problem Statement --}}
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
-                    <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
-                        class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="2" placeholder=""></textarea>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-email"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      {{-- Problem Statement --}}
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
-                    <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
-                        class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="2" placeholder=""></textarea>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-email"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      To Sustainability
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
-                    <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
-                        class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="2" placeholder=""></textarea>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-email"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      {{-- Problem Statement --}}
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
-                    <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
-                        class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="2" placeholder=""></textarea>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-email"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      {{-- Problem Statement --}}
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
-                    <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
-                        class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="2" placeholder=""></textarea>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                </div>
-              </div>
-            </div>
-            <!-- End Seven Content -->
-
-            <!-- Eight Content -->
-            <div data-hs-stepper-content-item='{"index": 8}' style="display: none;">
-              <div
-                class="p-4 h-max bg-gray-50  items-center border border-dashed border-gray-200 rounded-xl dark:bg-gray-800 dark:border-gray-700">
-                <!-- Section -->
-                <div
-                  class="grid sm:grid-cols-12 gap-2 sm:gap-4 py-8 first:pt-0 last:pb-0 border-t first:border-transparent border-gray-200 dark:border-gray-700 dark:first:border-transparent">
-                  <div class="sm:col-span-12">
-                    <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
-                      Event Tentative
-                    </h2>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-full-name"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      Tentative
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    <div class="flex flex-col">
-                      <div class="-m-1.5 overflow-x-auto">
-                        <div class="p-1.5 min-w-full inline-block align-middle">
-                          <div class="border rounded-lg overflow-hidden dark:border-neutral-700">
-                            <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
-                              <thead>
-                                <tr>
-                                  <th scope="col"
-                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
-                                    Name</th>
-                                  <th scope="col"
-                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
-                                    Address</th>
-                                  <th scope="col"
-                                    class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
-                                    Action</th>
-                                </tr>
-                              </thead>
-                              <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
-                                <tr>
-                                  <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                    John Brown</td>
-
-                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                    New
-                                    York No. 1 Lake Park</td>
-                                  <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                    <button type="button"
-                                      class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400">Delete</button>
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                    Jim Green</td>
-
-                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                    London No. 1 Lake Park</td>
-                                  <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                    <button type="button"
-                                      class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400">Delete</button>
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                    Joe Black</td>
-                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                    Sidney No. 1 Lake Park</td>
-                                  <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                    <button type="button"
-                                      class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400">Delete</button>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                </div>
-              </div>
-            </div>
-            <!-- End Eight Content -->
-
-            <!-- Nine Content -->
-            <div data-hs-stepper-content-item='{"index": 9}' style="display: none;">
-              <div
-                class="p-4 h-max bg-gray-50  items-center border border-dashed border-gray-200 rounded-xl dark:bg-gray-800 dark:border-gray-700">
-                <!-- Section -->
-                <div
-                  class="grid sm:grid-cols-12 gap-2 sm:gap-4 py-8 first:pt-0 last:pb-0 border-t first:border-transparent border-gray-200 dark:border-gray-700 dark:first:border-transparent">
-                  <div class="sm:col-span-12">
-                    <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
-                      Activity Committee
-                    </h2>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-full-name"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      Committee
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    <div class="flex flex-col">
-                      <div class="-m-1.5 overflow-x-auto">
-                        <div class="p-1.5 min-w-full inline-block align-middle">
-                          <div class="border rounded-lg overflow-hidden dark:border-neutral-700">
-                            <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
-                              <thead>
-                                <tr>
-                                  <th scope="col"
-                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
-                                    Name</th>
-                                  <th scope="col"
-                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
-                                    Address</th>
-                                  <th scope="col"
-                                    class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
-                                    Action</th>
-                                </tr>
-                              </thead>
-                              <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
-                                <tr>
-                                  <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                    John Brown</td>
-
-                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                    New
-                                    York No. 1 Lake Park</td>
-                                  <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                    <button type="button"
-                                      class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400">Delete</button>
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                    Jim Green</td>
-
-                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                    London No. 1 Lake Park</td>
-                                  <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                    <button type="button"
-                                      class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400">Delete</button>
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                    Joe Black</td>
-                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                    Sidney No. 1 Lake Park</td>
-                                  <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                    <button type="button"
-                                      class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400">Delete</button>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                </div>
-              </div>
-            </div>
-            <!-- End Nine Content -->
-
-            <!-- Ten Content -->
-            <div data-hs-stepper-content-item='{"index": 10}' style="display: none;">
-              <div
-                class="p-4 h-max bg-gray-50  items-center border border-dashed border-gray-200 rounded-xl dark:bg-gray-800 dark:border-gray-700">
-                <!-- Section -->
-                <div
-                  class="grid sm:grid-cols-12 gap-2 sm:gap-4 py-8 first:pt-0 last:pb-0 border-t first:border-transparent border-gray-200 dark:border-gray-700 dark:first:border-transparent">
-                  <div class="sm:col-span-12">
-                    <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
-                      BUDGET ESTIMATES
-                    </h2>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-full-name"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      BUDGET
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    <div class="flex flex-col">
-                      <div class="-m-1.5 overflow-x-auto">
-                        <div class="p-1.5 min-w-full inline-block align-middle">
-                          <div class="border rounded-lg overflow-hidden dark:border-neutral-700">
-                            <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
-                              <thead>
-                                <tr>
-                                  <th scope="col"
-                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
-                                    Name</th>
-                                  <th scope="col"
-                                    class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
-                                    Address</th>
-                                  <th scope="col"
-                                    class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase dark:text-neutral-500">
-                                    Action</th>
-                                </tr>
-                              </thead>
-                              <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
-                                <tr>
-                                  <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                    John Brown</td>
-
-                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                    New
-                                    York No. 1 Lake Park</td>
-                                  <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                    <button type="button"
-                                      class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400">Delete</button>
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                    Jim Green</td>
-
-                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                    London No. 1 Lake Park</td>
-                                  <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                    <button type="button"
-                                      class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400">Delete</button>
-                                  </td>
-                                </tr>
-
-                                <tr>
-                                  <td
-                                    class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                                    Joe Black</td>
-                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                                    Sidney No. 1 Lake Park</td>
-                                  <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                    <button type="button"
-                                      class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-400">Delete</button>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                </div>
-              </div>
-            </div>
-            <!-- End Ten Content -->
-
-            <!-- Eleven Content -->
-            <div data-hs-stepper-content-item='{"index": 11}' style="display: none;">
-              <div
-                class="p-4 h-max bg-gray-50  items-center border border-dashed border-gray-200 rounded-xl dark:bg-gray-800 dark:border-gray-700">
-                {{-- <h3 class="text-gray-500">
-                  First content
-                </h3> --}}
-
-                <!-- Section -->
-                <div
-                  class="grid sm:grid-cols-12 gap-2 sm:gap-4 py-8 first:pt-0 last:pb-0 border-t first:border-transparent border-gray-200 dark:border-gray-700 dark:first:border-transparent">
-                  <div class="sm:col-span-12">
-                    <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
-                      Others
-                    </h2>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-full-name"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      Others
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
-                    <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
-                        class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="4" placeholder=""></textarea>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                </div>
-              </div>
-            </div>
-            <!-- End Eleven Content -->
-
-            <!-- Twelve Content -->
-            <div data-hs-stepper-content-item='{"index": 12}' style="display: none;">
-              <div
-                class="p-4 h-max bg-gray-50  items-center border border-dashed border-gray-200 rounded-xl dark:bg-gray-800 dark:border-gray-700">
-                {{-- <h3 class="text-gray-500">
-                  First content
-                </h3> --}}
-
-                <!-- Section -->
-                <div
-                  class="grid sm:grid-cols-12 gap-2 sm:gap-4 py-8 first:pt-0 last:pb-0 border-t first:border-transparent border-gray-200 dark:border-gray-700 dark:first:border-transparent">
-                  <div class="sm:col-span-12">
-                    <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
-                      Implications if Not Approved
-                    </h2>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-3">
-                    <label for="af-submit-application-full-name"
-                      class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      Implications
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="sm:col-span-9">
-                    {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
-                    <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio"
-                        class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="4" placeholder=""></textarea>
-                    </div>
-                  </div>
-                  <!-- End Col -->
-
-                </div>
-              </div>
-            </div>
-            <!-- End Twelve Content -->
 
             <!-- Button -->
             <div class="mt-5 flex justify-between items-center gap-x-2">
@@ -1398,8 +719,6 @@
 
             </div>
             <!-- End Button -->
-
-
 
 
         </div>
