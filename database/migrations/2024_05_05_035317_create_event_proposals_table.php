@@ -20,7 +20,9 @@ return new class extends Migration {
       $table->string('day');
       $table->string('time');
       $table->string('location');
-
+      $table->string('objective1');
+      $table->string('objective2');
+      $table->string('objective3');
       $table->timestamps();
     });
   }

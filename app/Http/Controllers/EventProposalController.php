@@ -29,6 +29,9 @@ class EventProposalController extends Controller
       'day' => 'required|string|max:255',
       'time' => 'required|string|max:255',
       'location' => 'required|string|max:255',
+      'objective1' => 'required|string|max:255',
+      'objective2' => 'required|string|max:255',
+      'objective3' => 'required|string|max:255',
 
     ]);
 
@@ -40,6 +43,9 @@ class EventProposalController extends Controller
     $eventProposal->day = $request['day'];
     $eventProposal->time = $request['time'];
     $eventProposal->location = $request['location'];
+    $eventProposal->objective1 = $request['objective1'];
+    $eventProposal->objective2 = $request['objective2'];
+    $eventProposal->objective3 = $request['objective3'];
     $eventProposal->save();
 
     return redirect()->route('submit-event-proposal-form');
@@ -407,11 +413,15 @@ class EventProposalController extends Controller
 
     $section2->addTextBreak(1);
 
+    $objective1 = $eventProposal->objective1;
+    $objective2 = $eventProposal->objective2;
+    $objective3 = $eventProposal->objective3;
+
     $section2->addListItem('OBJEKTIF AKTIVITI', 0, 'boldText', 'multilevel');
 
-    $section2->addListItem($background, 1, 'notBoldText', 'multilevel');
-    $section2->addListItem($background, 1, 'notBoldText', 'multilevel');
-    $section2->addListItem($background, 1, 'notBoldText', 'multilevel');
+    $section2->addListItem($objective1, 1, 'notBoldText', 'multilevel');
+    $section2->addListItem($objective2, 1, 'notBoldText', 'multilevel');
+    $section2->addListItem($objective3, 1, 'notBoldText', 'multilevel');
 
     $section2->addTextBreak(1);
 
