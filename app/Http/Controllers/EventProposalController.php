@@ -4,17 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\EventProposal;
 use Illuminate\Http\Request;
-
-//test
-
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\IOFactory;
 use Illuminate\Support\Facades\Response;
-
-
+use Illuminate\View\View;
 
 class EventProposalController extends Controller
 {
+  public function getEventProposal(Request $request): View
+  {
+    $eventProposal = EventProposal::all();
+
+    return view('admin.check-review-proposal', [
+      'user' => $request->user(),
+      'eventProposal' => $eventProposal
+    ]);
+  }
+
   /* letak dekat controller event proposal */
   public function postEventProposal(Request $request)
   {

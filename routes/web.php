@@ -55,6 +55,7 @@ Route::get('export-to-word', [EventProposalController::class, 'exportToWord']);
 
 
 Route::middleware('auth')->group(function () {
+  Route::get('/event-proposal', [EventProposalController::class, 'getEventProposal'])->name('event.get-event-proposal');
   Route::post('/event-proposal', [EventProposalController::class, 'postEventProposal'])->name('event.post-event-proposal');
 
   Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
