@@ -21,6 +21,25 @@ class EventProposalController extends Controller
     ]);
   }
 
+  public function getSubmitEventProposal(Request $request): View
+  {
+    return view('submit-event-proposal-form', [
+      'user' => $request->user(),
+      'admin' => $request->user(),
+    ]);
+  }
+
+  public function getViewEventProposal(Request $request, int $id): View
+  {
+    $eventProposalData = EventProposal::find($id);
+
+    return view('view-event-proposal-form', [
+      'user' => $request->user(),
+      /* 'admin' => $request->user(), */
+      'eventProposalData' => $eventProposalData
+    ]);
+  }
+
   /* letak dekat controller event proposal */
   public function postEventProposal(Request $request)
   {

@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      {{ __('Submit Event Proposal') }}
+      {{ __('Check and Review Proposal') }}
     </h2>
   </x-slot>
 
@@ -27,7 +27,7 @@
               </span>
               <span
                 class="ms-2 text-sm font-medium text-gray-800 group-focus:text-gray-500 dark:text-white dark:group-focus:text-gray-400">
-                Step
+                Step asdad asd
               </span>
             </span>
             <div
@@ -52,7 +52,7 @@
               </span>
               <span
                 class="ms-2 text-sm font-medium text-gray-800 group-focus:text-gray-500 dark:text-white dark:group-focus:text-gray-400">
-                Step
+                Step asdas
               </span>
             </span>
             <div
@@ -318,15 +318,15 @@
               <div
                 class="p-4 h-max bg-gray-50  items-center border border-dashed border-gray-200 rounded-xl dark:bg-gray-800 dark:border-gray-700">
                 {{-- <h3 class="text-gray-500">
-                    First content
-                  </h3> --}}
+                      First content
+                    </h3> --}}
 
                 <!-- Section -->
                 <div
                   class="grid sm:grid-cols-12 gap-2 sm:gap-4 py-8 first:pt-0 last:pb-0 border-t first:border-transparent border-gray-200 dark:border-gray-700 dark:first:border-transparent">
                   <div class="sm:col-span-12">
                     <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-200">
-                      Descriptisdasdon
+                      Description
                     </h2>
                   </div>
                   <!-- End Col -->
@@ -342,6 +342,8 @@
                     <div class="sm:flex">
                       <input type="text" id="purpose" name="purpose" value="{{ old('purpose') }}"
                         class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
+                      {{-- <input type="text"
+                  class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
                       <x-input-error class="mt-2" :messages="$errors->get('purpose')" />
                     </div>
                   </div>
@@ -356,38 +358,18 @@
 
                   <div class="sm:col-span-9">
                     {{--  <input id="af-submit-application-phone" type="text"
-                        class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
+                          class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
                     <div class="sm:col-span-9">
                       <textarea id="background" name="background"
                         class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="6" placeholder=""> {{ old('background') }}
-                    </textarea>
+                        rows="6" placeholder="">
+                        {{ old('background') }}
+                      </textarea>
                       <x-input-error class="mt-2" :messages="$errors->get('background')" />
                     </div>
                   </div>
                   <!-- End Col -->
 
-                  {{--  @if ($user->role == 'admin') --}}
-                  <!-- admin review -->
-                  <div class="sm:col-span-3">
-                    <label for="background" class="inline-block text-sm font-medium text-gray-500 mt-2.5">
-                      Comment
-                    </label>
-                  </div>
-                  <!-- End Col -->
-
-                  {{-- <div class="sm:col-span-9">
-                    <div class="sm:col-span-9">
-                      <textarea id="comment" name="comment"
-                        class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="6" placeholder="">
-                      {{ old('comment', $eventProposalData->comment) }}
-                    </textarea>
-                      <x-input-error class="mt-2" :messages="$errors->get('comment')" />
-                    </div>
-                  </div> --}}
-                  <!-- End Col -->
-                  {{--   @endif --}}
                 </div>
               </div>
             </div>
@@ -398,8 +380,8 @@
               <div
                 class="p-4 h-max bg-gray-50  items-center border border-dashed border-gray-200 rounded-xl dark:bg-gray-800 dark:border-gray-700">
                 {{-- <h3 class="text-gray-500">
-                    First content
-                  </h3> --}}
+                      First content
+                    </h3> --}}
 
                 <!-- Section -->
                 <div
@@ -424,7 +406,7 @@
                         class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
                       <x-input-error class="mt-2" :messages="$errors->get('eventName')" />
                       {{-- <input type="text"
-                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
+                  class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
                     </div>
                   </div>
                   <!-- End Col -->
@@ -438,14 +420,13 @@
 
                   <div class="sm:col-span-9">
                     {{--  <input id="af-submit-application-phone" type="text"
-                        class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
+                          class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
 
 
                     <div class="sm:col-span-9">
                       <textarea id="organizer" name="organizer"
                         class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="6" placeholder=""> {{ old('organizer') }}
-                      </textarea>
+                        rows="6" placeholder="">{{ old('organizer') }}</textarea>
                       <x-input-error class="mt-2" :messages="$errors->get('organizer')" />
                     </div>
                   </div>
@@ -480,7 +461,7 @@
 
                   <div class="sm:col-span-9">
                     <div class="sm:flex">
-                      <input type="text" id="date" name="date" value="{{ old('date') }}"
+                      <input id="date" type="text" name="date" value="{{ old('date') }}"
                         class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
                       <x-input-error class="mt-2" :messages="$errors->get('date')" />
                     </div>
@@ -496,7 +477,7 @@
 
                   <div class="sm:col-span-9">
                     <div class="sm:flex">
-                      <input type="text" id="day" name="day" value="{{ old('day') }}"
+                      <input id="day" type="text" name="day" value="{{ old('day') }}"
                         class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
                       <x-input-error class="mt-2" :messages="$errors->get('day')" />
                     </div>
@@ -512,7 +493,7 @@
 
                   <div class="sm:col-span-9">
                     <div class="sm:flex">
-                      <input type="text" id="time" name="time" value="{{ old('time') }}"
+                      <input id="time" type="text" name="time" value="{{ old('time') }}"
                         class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
                       <x-input-error class="mt-2" :messages="$errors->get('time')" />
                     </div>
@@ -528,7 +509,7 @@
 
                   <div class="sm:col-span-9">
                     <div class="sm:flex">
-                      <input type="text" id="location" name="location" value="{{ old('location') }}"
+                      <input id="location" type="text" name="location" value="{{ old('location') }}"
                         class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600">
                       <x-input-error class="mt-2" :messages="$errors->get('location')" />
                     </div>
@@ -547,8 +528,8 @@
               <div
                 class="p-4 h-max bg-gray-50  items-center border border-dashed border-gray-200 rounded-xl dark:bg-gray-800 dark:border-gray-700">
                 {{-- <h3 class="text-gray-500">
-                  First content
-                </h3> --}}
+                    First content
+                  </h3> --}}
 
                 <!-- Section -->
                 <div
@@ -569,7 +550,7 @@
 
                   <div class="sm:col-span-9">
                     {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
+                        class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
                     <div class="sm:col-span-9">
                       <textarea id="objective1" name="objective1"
                         class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
@@ -588,7 +569,7 @@
 
                   <div class="sm:col-span-9">
                     {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
+                        class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
                     <div class="sm:col-span-9">
                       <textarea id="objective2" name="objective2"
                         class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
@@ -607,11 +588,11 @@
 
                   <div class="sm:col-span-9">
                     {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
+                        class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
                     <div class="sm:col-span-9">
                       <textarea id="objective3" name="objective3"
                         class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="2" placeholder="">{{ old('objective3') }}</textarea>
+                        rows="2" placeholder="">{{ old('objective2') }}</textarea>
                       <x-input-error class="mt-2" :messages="$errors->get('objective3')" />
                     </div>
                   </div>
@@ -626,7 +607,7 @@
 
                   <div class="sm:col-span-9">
                     {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
+                        class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
                     <div class="sm:col-span-9">
                       <textarea id="per_Masalah1" name="per_Masalah1"
                         class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
@@ -645,7 +626,7 @@
 
                   <div class="sm:col-span-9">
                     {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
+                        class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
                     <div class="sm:col-span-9">
                       <textarea id="per_Masalah2" name="per_Masalah2"
                         class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
@@ -664,11 +645,11 @@
 
                   <div class="sm:col-span-9">
                     {{--  <input id="af-submit-application-phone" type="text"
-                      class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
+                        class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"> --}}
                     <div class="sm:col-span-9">
                       <textarea id="per_Masalah3" name="per_Masalah3"
                         class="py-2 px-3 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                        rows="6" placeholder="">{{ old('per_Masalah2') }}</textarea>
+                        rows="3" placeholder="">{{ old('per_Masalah3') }}</textarea>
                       <x-input-error class="mt-2" :messages="$errors->get('per_Masalah3')" />
                     </div>
                   </div>
@@ -694,7 +675,7 @@
               <button type="button"
                 class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                 data-hs-stepper-next-btn>
-                Next
+                Next as
                 <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round">
@@ -705,7 +686,7 @@
               <button type="generate"
                 class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                 data-hs-stepper-next-btn>
-                Generate
+                Generate ad
                 <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round">
@@ -716,7 +697,7 @@
               <button type="submit"
                 class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                 data-hs-stepper-next-btn>
-                Submit
+                Submit asd
                 <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round">
@@ -731,7 +712,7 @@
               <button type="reset"
                 class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                 data-hs-stepper-reset-btn style="display: none;">
-                Reset
+                Reset asd
               </button>
 
 

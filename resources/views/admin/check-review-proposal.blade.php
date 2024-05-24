@@ -72,7 +72,7 @@
                 </div>
               </th>
               <th scope="col" class="px-6 py-3">
-                Name
+                EventName
               </th>
               <th scope="col" class="px-6 py-3">
                 Position
@@ -100,7 +100,12 @@
                   <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Jese image">
                   <div class="ps-3">
                     {{-- <div class="text-base font-semibold">Name</div> --}}
-                    <div class="text-base font-semibold">{{ $eventProposalData->eventName }}</div>
+                    <div class="text-base font-semibold">
+                      <a href="{{ route('event.get-view-event-proposal', $eventProposalData->id) }}"
+                        class="text-blue-600 dark:text-blue-400 hover:underline">
+                        {{ $eventProposalData->eventName }}
+                      </a>
+                    </div>
                     {{-- <div class="font-normal text-gray-500 ">{{ $eventProposalData->eventName }}</div> --}}
                   </div>
                   </th>

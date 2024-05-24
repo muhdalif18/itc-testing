@@ -28,6 +28,7 @@ Route::get('/submit-event-proposal-form', function () {
   return view('submit-event-proposal-form');
 })->middleware(['auth', 'verified'])->name('submit-event-proposal-form');
 
+
 Route::get('/generate-event-report-form', function () {
   return view('generate-event-report-form');
 })->middleware(['auth', 'verified'])->name('generate-event-report-form');
@@ -57,6 +58,8 @@ Route::get('export-to-word', [EventProposalController::class, 'exportToWord']);
 Route::middleware('auth')->group(function () {
   Route::get('/event-proposal', [EventProposalController::class, 'getEventProposal'])->name('event.get-event-proposal');
   Route::post('/event-proposal', [EventProposalController::class, 'postEventProposal'])->name('event.post-event-proposal');
+  Route::get('/event-proposal/submit/', [EventProposalController::class, 'getSubmitEventProposal'])->name('event.get-submit-event-proposal');
+  Route::get('/event-proposal/view/{id}', [EventProposalController::class, 'getViewEventProposal'])->name('event.get-view-event-proposal');
 
   Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
   Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
