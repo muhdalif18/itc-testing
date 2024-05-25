@@ -11,6 +11,27 @@ use Illuminate\View\View;
 
 class EventProposalController extends Controller
 {
+  /* public function getEventProposal(Request $request): View
+  {
+    $eventProposal = EventProposal::all();
+
+    $user = $request->user();
+
+    // Check a condition to determine which view to return
+    if ($user->role === 'admin') {
+      // Return the 'admin.check-review-proposal' view for admins
+      return view('admin.check-review-proposal', [
+        'user' => $user,
+        'eventProposal' => $eventProposal
+      ]);
+    } else {
+      // Return a different view for non-admin users
+      return view('submit-manage-event-form', [
+        'user' => $user,
+        'eventProposal' => $eventProposal
+      ]);
+    }
+  } */
   public function getEventProposal(Request $request): View
   {
     $eventProposal = EventProposal::all();
@@ -19,6 +40,18 @@ class EventProposalController extends Controller
       'user' => $request->user(),
       'eventProposal' => $eventProposal
     ]);
+
+  }
+
+  public function getEventProposalUser(Request $request): View
+  {
+    $eventProposal = EventProposal::all();
+
+    return view('submit-manage-event-form', [
+      'user' => $request->user(),
+      'eventProposal' => $eventProposal
+    ]);
+
   }
 
   public function getSubmitEventProposal(Request $request): View
@@ -60,23 +93,39 @@ class EventProposalController extends Controller
       'per_Masalah1' => 'required|string|max:255',
       'per_Masalah2' => 'required|string|max:255',
       'per_Masalah3' => 'required|string|max:255',
+      'description_Comment' => 'nullable|string|max:255',
 
     ]);
 
-    $eventProposal->purpose = $request['purpose'];
-    $eventProposal->background = $request['background'];
-    $eventProposal->eventName = $request['eventName'];
-    $eventProposal->organizer = $request['organizer'];
-    $eventProposal->date = $request['date'];
-    $eventProposal->day = $request['day'];
-    $eventProposal->time = $request['time'];
-    $eventProposal->location = $request['location'];
-    $eventProposal->objective1 = $request['objective1'];
-    $eventProposal->objective2 = $request['objective2'];
-    $eventProposal->objective3 = $request['objective3'];
-    $eventProposal->per_Masalah1 = $request['per_Masalah1'];
-    $eventProposal->per_Masalah2 = $request['per_Masalah2'];
-    $eventProposal->per_Masalah3 = $request['per_Masalah3'];
+    if ($request->has('id')) {
+      // Find the existing event proposal by ID
+      $eventProposal = EventProposal::find($request->id);
+
+      // If an event proposal with the provided ID doesn't exist, create a new one
+      if (!$eventProposal) {
+        $eventProposal = new EventProposal();
+      }
+    } else {
+      // If no ID is provided in the request, create a new event proposal
+      $eventProposal = new EventProposal();
+    }
+
+    // Update the event proposal details
+    $eventProposal->purpose = $request->input('purpose');
+    $eventProposal->background = $request->input('background');
+    $eventProposal->eventName = $request->input('eventName');
+    $eventProposal->organizer = $request->input('organizer');
+    $eventProposal->date = $request->input('date');
+    $eventProposal->day = $request->input('day');
+    $eventProposal->time = $request->input('time');
+    $eventProposal->location = $request->input('location');
+    $eventProposal->objective1 = $request->input('objective1');
+    $eventProposal->objective2 = $request->input('objective2');
+    $eventProposal->objective3 = $request->input('objective3');
+    $eventProposal->per_Masalah1 = $request->input('per_Masalah1');
+    $eventProposal->per_Masalah2 = $request->input('per_Masalah2');
+    $eventProposal->per_Masalah3 = $request->input('per_Masalah3');
+    $eventProposal->description_Comment = $request->input('description_Comment');
     $eventProposal->save();
 
     return redirect()->route('submit-event-proposal-form');

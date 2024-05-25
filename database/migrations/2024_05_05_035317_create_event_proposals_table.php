@@ -26,6 +26,7 @@ return new class extends Migration {
       $table->string('per_Masalah1');
       $table->string('per_Masalah2');
       $table->string('per_Masalah3');
+      $table->string('description_Comment');
       $table->timestamps();
     });
   }

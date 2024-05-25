@@ -72,7 +72,7 @@
                 </div>
               </th>
               <th scope="col" class="px-6 py-3">
-                EventName (Admin)
+                EventName (SIDE USER)
               </th>
               <th scope="col" class="px-6 py-3">
                 Position

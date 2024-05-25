@@ -42,9 +42,9 @@ Route::get('/update-profile-form', function () {
   return view('update-profile-form');
 })->middleware(['auth', 'verified'])->name('update-profile-form');
 
-Route::get('/createdocument', function () {
-  return view('createdocument');
-})->middleware(['auth', 'verified'])->name('createdocument');
+Route::get('/submit-manage-event-form', function () {
+  return view('submit-manage-event-form');
+})->middleware(['auth', 'verified'])->name('submit-manage-event-form');
 
 Route::get('create', 'DocumentController@create');
 Route::post('store', 'DocumentController@store');
@@ -56,8 +56,9 @@ Route::get('export-to-word', [EventProposalController::class, 'exportToWord']);
 
 
 Route::middleware('auth')->group(function () {
-  Route::get('/event-proposal', [EventProposalController::class, 'getEventProposal'])->name('event.get-event-proposal');
   Route::post('/event-proposal', [EventProposalController::class, 'postEventProposal'])->name('event.post-event-proposal');
+  Route::get('/event-proposal', [EventProposalController::class, 'getEventProposal'])->name('event.get-event-proposal');
+  Route::get('/event-proposal-user', [EventProposalController::class, 'getEventProposalUser'])->name('event.get-event-proposal-user');
   Route::get('/event-proposal/submit/', [EventProposalController::class, 'getSubmitEventProposal'])->name('event.get-submit-event-proposal');
   Route::get('/event-proposal/view/{id}', [EventProposalController::class, 'getViewEventProposal'])->name('event.get-view-event-proposal');
 
