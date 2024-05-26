@@ -5,13 +5,197 @@
     </h2>
   </x-slot>
 
-  <!-- component -->
-  <!-- This is an example component -->
+  <style>
+    .calendar {
+      display: flex;
+      position: relative;
+      padding: 16px;
+      margin: 0 auto;
+      width: 100%;
+      background: white;
+      border-radius: 4px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .month-year {
+      position: absolute;
+      bottom: 62px;
+      right: -27px;
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 300;
+      color: #94A3B8;
+      transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+    }
+
+    .year {
+      margin-left: 4px;
+      color: #CBD5E1;
+    }
+
+    .days {
+      display: flex;
+      flex-wrap: wrap;
+      flex-grow: 1;
+      margin-right: 46px;
+    }
+
+    .day-label {
+      position: relative;
+      flex-basis: calc(14.286% - 2px);
+      margin: 1px 1px 12px 1px;
+      font-weight: 700;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      color: #1E293B;
+    }
+
+    .day {
+      position: relative;
+      flex-basis: calc(14.286% - 2px);
+      margin: 1px;
+      /* border-radius: 999px; */
+      cursor: pointer;
+      font-weight: 300;
+    }
+
+    .day.dull {
+      color: #94A3B8;
+    }
+
+    .day.today {
+      color: #0EA5E9;
+      font-weight: 600;
+    }
+
+    .day::before {
+      content: '';
+      display: block;
+      padding-top: 100%;
+    }
+
+    .day:hover {
+      background: #E0F2FE;
+    }
+
+    .day .content {
+      /* position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      display: flex; */
+      /* justify-content: center;
+      align-items: center; */
+    }
+  </style>
+
   <div>
 
+    <div class="p-4 overflow-y-auto">
+      <label for="input-label" class="block text-sm font-medium mb-2 dark:text-white">Email</label>
+      <form method="post" action="{{ route('calendar.post-calendar-event') }}">
+        @csrf
+
+        <input type="date" id="date" name="date">
+        <x-input-error :messages="$errors->get('date')" class="mt-2" />
+        <input type="text" id="event" name="event"
+          class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:placeholder-neutral-500 dark:text-neutral-400"
+          placeholder="Enter event">
+        <x-input-error :messages="$errors->get('event')" class="mt-2" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+
+    <div class="calendar">
+      <div class="month-year">
+        <span class="month">{{ $date->format('M') }}</span>
+        <span class="year">{{ $date->format('Y') }}</span>
+      </div>
+      <div class="days">
+        @php
+          $dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        @endphp
+        @foreach ($dayLabels as $dayLabel)
+          <span class="day-label">{{ $dayLabel }}</span>
+        @endforeach
+        @while ($startOfCalendar <= $endOfCalendar)
+          @php
+            $count = 0;
+            $extraClass = $startOfCalendar->format('m') != $date->format('m') ? 'dull' : '';
+            $extraClass = $startOfCalendar->isToday() ? ' today' : '';
+          @endphp
+          <div class="day {{ $extraClass }}">
+            <span class="content">{{ $startOfCalendar->format('j') }}</span>
+
+            @foreach ($calendarEvent as $calendarEventData)
+              @php
+                $dateFormat = \Carbon\Carbon::parse($calendarEventData->date);
+              @endphp
+              @if ($startOfCalendar == $dateFormat)
+                <span class="flex justify-center items-center w-full h-12 bg-gray-200">Run</span>
+              @endif
+            @endforeach
+          </div>
+          @php
+            $startOfCalendar->addDay();
+          @endphp
+        @endwhile
+      </div>
+    </div>
+
+    {{-- <div id="hs-focus-management-modal"
+      class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none">
+      <div
+        class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
+        <div
+          class="flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
+          <div class="flex justify-between items-center py-3 px-4 border-b dark:border-neutral-700">
+            <h3 class="font-bold text-gray-800 dark:text-white">
+              Modal title
+            </h3>
+            <button type="button"
+              class="flex justify-center items-center size-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700"
+              data-hs-overlay="#hs-focus-management-modal">
+              <span class="sr-only">Close</span>
+              <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="p-4 overflow-y-auto">
+            <label for="input-label" class="block text-sm font-medium mb-2 dark:text-white">Email</label>
+            <input type="email" id="input-label"
+              class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:placeholder-neutral-500 dark:text-neutral-400"
+              placeholder="you@site.com" autofocus="">
+          </div>
+          <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-neutral-700">
+            <button type="button"
+              class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800"
+              data-hs-overlay="#hs-focus-management-modal">
+              Close
+            </button>
+            <button type="button"
+              class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div> --}}
+  </div>
+
+  {{-- <div>
     <link rel="dns-prefetch" href="//unpkg.com" />
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
-    {{--  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"> --}}
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
     <style>
@@ -23,11 +207,6 @@
     <div class="antialiased sans-serif bg-white-100 h-screen">
       <div x-data="app()" x-init="[initDate(), getNoOfDays()]" x-cloak>
         <div class="container mx-auto px-4 py-2 md:py-24">
-
-
-          <!-- <div class="font-bold text-gray-800 text-xl mb-4">
-    Schedule Tasks
-   </div> -->
 
           <div class="bg-white rounded-lg shadow overflow-hidden">
 
@@ -84,11 +263,6 @@
                       }">
                     </div>
                     <div style="height: 80px;" class="overflow-y-auto mt-1">
-                      <!-- <div
-          class="absolute top-0 right-0 mt-2 mr-2 inline-flex items-center justify-center rounded-full text-sm w-6 h-6 bg-gray-700 text-white leading-none"
-          x-show="events.filter(e => e.event_date === new Date(year, month, date).toDateString()).length"
-          x-text="events.filter(e => e.event_date === new Date(year, month, date).toDateString()).length"></div> -->
-
                       <template
                         x-for="event in events.filter(e => new Date(e.event_date).toDateString() ===  new Date(year, month, date).toDateString() )">
                         <div class="px-2 py-1 rounded-lg mt-1 overflow-hidden border"
@@ -301,5 +475,6 @@
         }
       </script>
     </div>
+  </div> --}}
 
 </x-app-layout>

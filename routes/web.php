@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventProposalController;
+use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\YourController;
 use Illuminate\Support\Facades\Route;
@@ -34,9 +35,9 @@ Route::get('/generate-event-report-form', function () {
 })->middleware(['auth', 'verified'])->name('generate-event-report-form');
 
 
-Route::get('/calendar', function () {
+/* Route::get('/calendar', function () {
   return view('calendar');
-})->middleware(['auth', 'verified'])->name('calendar');
+})->middleware(['auth', 'verified'])->name('calendar'); */
 
 Route::get('/update-profile-form', function () {
   return view('update-profile-form');
@@ -55,6 +56,7 @@ Route::get('generate-docx', 'HomeController@generateDocx');
 
 
 Route::middleware('auth')->group(function () {
+  // Event Proposal
   Route::post('/event-proposal', [EventProposalController::class, 'postEventProposal'])->name('event.post-event-proposal');
   Route::get('/event-proposal', [EventProposalController::class, 'getEventProposal'])->name('event.get-event-proposal');
   Route::get('/event-proposal-user', [EventProposalController::class, 'getEventProposalUser'])->name('event.get-event-proposal-user');
@@ -62,8 +64,11 @@ Route::middleware('auth')->group(function () {
   Route::get('/event-proposal/view/{id}', [EventProposalController::class, 'getViewEventProposal'])->name('event.get-view-event-proposal');
   Route::get('/export-to-word/{id}', [EventProposalController::class, 'exportToWord'])->name('export-to-word');
 
+  // Calendar
+  Route::get('/calendar', [CalendarController::class, 'getCalendar'])->name('calendar.get-calendar');
+  Route::post('/calendar', [CalendarController::class, 'postCalendarEvent'])->name('calendar.post-calendar-event');
 
-
+  // Profile
   Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
   Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
   Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
