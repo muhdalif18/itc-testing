@@ -27,6 +27,9 @@ return new class extends Migration {
       $table->string('per_Masalah2');
       $table->string('per_Masalah3');
       $table->string('description_Comment');
+      $table->string('eventDetails_Comment');
+      $table->string('organizer_Comment');
+      $table->string('obj_Comment');
       $table->timestamps();
     });
   }

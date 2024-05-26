@@ -93,7 +93,10 @@ class EventProposalController extends Controller
       'per_Masalah1' => 'required|string|max:255',
       'per_Masalah2' => 'required|string|max:255',
       'per_Masalah3' => 'required|string|max:255',
-      'description_Comment' => 'nullable|string|max:255',
+      'description_Comment' => 'string|max:255',
+      'eventDetails_Comment' => 'string|max:255',
+      'organizer_Comment' => 'string|max:255',
+      'obj_Comment' => 'string|max:255',
 
     ]);
 
@@ -126,6 +129,9 @@ class EventProposalController extends Controller
     $eventProposal->per_Masalah2 = $request->input('per_Masalah2');
     $eventProposal->per_Masalah3 = $request->input('per_Masalah3');
     $eventProposal->description_Comment = $request->input('description_Comment');
+    $eventProposal->eventDetails_Comment = $request->input('eventDetails_Comment');
+    $eventProposal->organizer_Comment = $request->input('organizer_Comment');
+    $eventProposal->obj_Comment = $request->input('obj_Comment');
     $eventProposal->save();
 
     return redirect()->route('submit-event-proposal-form');
@@ -547,7 +553,7 @@ class EventProposalController extends Controller
     return $path;
   }
 
-  public function exportToWord()
+  /* public function exportToWord()
   {
     // Fetch data
     $data = $this->fetchData();
@@ -557,5 +563,24 @@ class EventProposalController extends Controller
 
     // Download the document
     return Response::download($filePath);
+  } */
+
+  public function exportToWord($id)
+  {
+    // Fetch data based on the provided ID
+    $data = EventProposal::find($id);
+
+    if (!$data) {
+      return redirect()->back()->with('error', 'Event Proposal not found');
+    }
+
+    // Generate Word document
+    $filePath = $this->generateWordDocument($data);
+
+    // Download the document
+    return Response::download($filePath);
   }
+
+
 }
+
