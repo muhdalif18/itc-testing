@@ -14,6 +14,7 @@ return new class extends Migration {
       $table->id();
       $table->date('date');
       $table->string('event');
+      $table->string('time');
       $table->timestamps();
     });
   }

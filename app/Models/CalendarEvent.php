@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class CalendarEvent extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  protected $fillable = [
+    'date', // Add 'date' to the fillable attributes
+    'event',
+    'time',
+  ];
 }

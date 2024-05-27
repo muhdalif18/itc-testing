@@ -68,6 +68,10 @@ Route::middleware('auth')->group(function () {
   Route::get('/calendar', [CalendarController::class, 'getCalendar'])->name('calendar.get-calendar');
   Route::post('/calendar', [CalendarController::class, 'postCalendarEvent'])->name('calendar.post-calendar-event');
 
+  Route::delete('/calendar/delete-event', [CalendarController::class, 'deleteEvent'])->name('calendar.delete-calendar-event');
+
+
+
   // Profile
   Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
   Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
